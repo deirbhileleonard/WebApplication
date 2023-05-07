@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	  <title>Shopping Cart</title>
+	  <!-- Favicon -->
+	  <link rel="shortcut icon" type="image/png" href="assets/logo.png">
+	  <!-- Bootstrap icons -->
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+	  <!-- Font Awesome icons -->
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <script src="https://kit.fontawesome.com/15ec1140f7.js" crossorigin="anonymous"></script>
+	  <!-- jQuery -->
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	  <!-- Bootstrap CSS and JavaScript -->
+	  <link href="css/styles.css" rel="stylesheet">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+	</head>
+    <body>
+	
+<!--Nav-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark topnav sticky-top">
+  <div class="container-fluid">
+    <img class="mb-2" src="Assets/Images/LogoName.png" alt="" width="150" height="45">
+	
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="home.html">Home</a>
+        </li>		
+        <li class="nav-item dropdown">
+		  <a class="nav-link" aria-current="page" href="albumPage.html">Vinyls</a>
+		</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link" aria-current="page" href="merchandisePage.html">Merchandise</a>
+		</li>
+        <li class="nav-item">
+          <a class="nav-link" href="trackinghome.html">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signin.html">Sign In</a>
+        </li>
+      </ul>
+      <form role="search" class="d-flex flex-column">
+	  <div class="d-flex">
+	  <input class="my-search-bar me-2" type="search" placeholder="Search" aria-label="Search">
+		  <button class="btn  btn-secondary border-0" type="submit">
+			<i class="fas fa-search"></i>
+		  </button>
+	  </div>
+	</form>
+    </div>
+	  <form class="d-flex" action="shoppingcart.html">
+		  <button class="btn btn-outline-light ms-2" type="submit">
+			<i class="bi-cart-fill me-1"></i>
+			<span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+		  </button>
+		</form>
+	</div>
+</nav>
+
+	<!-- Header-->
+	<header class="bg-dark py-5">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	</header>
+	
+	
+<!-- Shopping Cart-->
+<section class="h-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center my-4">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Cart - 2 items</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img src="assets/elvisPresleyAlbum.jpg"
+                    class="w-100" alt="Elvis Presley Album" />
+                </div>
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+			  <div class="my-box">
+                <!-- Shopping Cart Items -->
+                <p><strong>Elvis Presley <br> The Greatest Hits</strong></p>
+                <p></p>
+                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
+				  <i class="fas fa-trash fa-2x"></i>
+				</button>
+
+                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                  title="Move to the wish list">
+                  <i class="fas fa-heart fa-2x"></i>
+                </button>
+			  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+			  <!-- Quantity -->
+			  <br>
+			  <div class="text-center">
+				<label class="form-label" for="form1">Quantity</label>
+			  </div>
+			  <div class="d-flex mb-4" style="max-width: 300px">
+				<div class="input-group">
+				  <button id="decrementButton" style="width: 50px; margin-right: 10px;"
+					onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+					<i class="fas fa-minus"></i>
+				  </button>
+				  <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 150px;" />
+				  <button id="incrementButton" style="width: 50px; margin-left: 0px;"
+					onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+					<i class="fas fa-plus"></i>
+				  </button>
+				</div>
+			  </div>
+
+			  <!-- Price and Update Cart button -->
+			  <div class="d-flex justify-content-between align-items-center">
+				 <p class="text-start text-md-left mb-0">
+					£20.00
+				  </p>
+				  <button class="btn btn-outline-dark mt-auto" type="button">
+					<i class="fas fa-sync-alt me-2"></i>Update Cart
+				  </button>
+			  </div>
+			</div>
+            </div>
+
+            <hr class="my-4" />
+
+            <!-- Shopping Cart Item 2 -->
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <!-- Image -->
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img src="assets/thePickOfDestiny.jpg" alt="Tenaious D The Pick Of Destiny"
+                    class="w-100" />
+                </div>
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <!-- Data -->
+                <p><strong>Tenacious D <br> The Pick Of Destiny</strong></p>
+                <p></p>
+
+                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
+				  <i class="fas fa-trash fa-2x"></i>
+				</button>
+
+                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                  title="Move to the wish list">
+                  <i class="fas fa-heart fa-2x"></i>
+                </button>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+			  <!-- Quantity -->
+			  <br>
+			  <div class="text-center">
+				<label class="form-label" for="form1">Quantity</label>
+			  </div>
+			  <div class="d-flex mb-4" style="max-width: 300px">
+				<div class="input-group">
+				  <button id="decrementButton" style="width: 50px; margin-right: 10px;"
+					onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+					<i class="fas fa-minus"></i>
+				  </button>
+				  <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 150px;" />
+				  <button id="incrementButton" style="width: 50px; margin-left: 0px;"
+					onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+					<i class="fas fa-plus"></i>
+				  </button>
+				</div>
+			  </div>
+
+			  <!-- Price and Update Cart button -->
+			  <div class="d-flex justify-content-between align-items-center">
+				 <p class="text-start text-md-left mb-0">
+					£17.50
+				  </p>
+				  <button class="btn btn-outline-dark mt-auto" type="button">
+					<i class="fas fa-sync-alt me-2"></i>Update Cart
+				  </button>
+				  
+			  </div>
+			</div>
+
+            </div>
+            <!-- Single item -->
+          </div>
+        </div>
+		
+		<!-- Delivery -->
+        <div class="card mb-4">
+		  <div class="card-body">
+			<p><strong>Expected shipping delivery</strong></p>
+			<div class="input-group mb-3">
+			  <input type="text" class="form-control" placeholder="Enter your postcode" aria-label="Postcode" aria-describedby="postcode-btn">
+			  <button class="btn btn-danger" type="button" id="postcode-btn">Check Delivery</button>
+			</div>
+			<p class="mb-0 d-none" id="delivery-cost">Delivery cost: £2.99</p>
+		  </div>
+		</div>
+
+		<script>
+		  document.getElementById('postcode-btn').addEventListener('click', function() {
+			document.getElementById('delivery-cost').classList.remove('d-none');
+		  });
+		</script>
+
+
+		<!-- Payment Types -->
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body">
+            <p><strong>We accept</strong></p>
+            <img class="me-2" width="45px"
+              src="assets/visa.png"
+              alt="Visa" />
+            <img class="me-2" width="45px"
+              src="assets/mastercard.png"
+              alt="Mastercard" />
+            <img class="me-2" width="45px"
+              src="assets/klarna.png"
+              alt="Klarna" />
+            <img class="me-2" width="45px"
+              src="assets/payPal.png"
+              alt="PayPal" />
+			<img class="me-2" width="45px"
+			  src="assets/applePay.png"
+			  alt="Apple Pay" />
+			<img class="me-2" width="45px"
+			  src="assets/googlePay.png"
+			  alt="Google Pay" />
+          </div>
+        </div>
+      </div>
+	  
+	  <!--Overview-->
+		<div class="col-md-4">
+		  <div class="card mb-4">
+			<div class="card-header py-3">
+			  <h5 class="mb-0">Summary</h5>
+			</div>
+			<div class="card-body">
+			  <ul class="list-group list-group-flush">
+				<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+				  Products
+				  <span>£37.50</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center px-0">
+				  Shipping
+				  <span>£2.99</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+				  <div>
+					<strong>Total amount</strong>
+					<strong>
+					  <p class="mb-0">(including VAT)</p>
+					</strong>
+				  </div>
+				  <span><strong>£40.49</strong></span>
+				</li>
+			  </ul>
+			  <br>
+			  <div class="d-flex align-items-center justify-content-center">
+				<div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="Enter discount code">
+				  <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#discountModal">Apply Discount</button>
+				</div>
+				<!-- Discount Modal -->
+				<div class="modal fade" id="discountModal" tabindex="-1" aria-labelledby="discountModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<h5 class="modal-title" id="discountModalLabel">Discount Applied</h5>
+						<button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+					  </div>
+					  <div class="modal-body">
+						Your discount code has been applied.
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn-danger" data-bs-dismiss="modal">OK</button>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <a href="checkoutPage.html" class="btn btn-danger btn-lg mx-auto">
+				  <i class="bi-cart-fill me-1"></i>
+				  Go to checkout
+			  </a>
+
+			</div>
+		  </div>
+		</div>
+</section>
+
+	<!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #000000"
+          >
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: red;">
+              Rockin' Roll
+            </h6>
+            <p>
+            Rockin’ Records, based in Derry/Londonderrry has cultivated a large following, 
+			young and old, singlehandedly bringing records back in style.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: red;">Products</h6>
+            <p>
+              <a class="text-white" href="albumPage.html">Vinyls</a>
+            </p>
+            <p>
+              <a class="text-white" href="merchandisePage.html">Merchandise</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold " style="color: red;">
+              Useful links
+            </h6>
+            <p>
+			  <a class="text-white" href="signin.html">Your Account</a>
+			</p>
+            <p>
+              <a class="text-white" href="trackinghome.html">Track My Order</a>
+            </p>
+            <p>
+              <a class="text-white" href="home.html">Home</a>
+            </p>
+          </div>
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: red;">
+				Contact
+			</h6>
+            <p><i class="fas fa-home mr-3"></i> Magee College Northland Road, Londonderry Derry BT48 7JL</p>
+            <p><i class="fas fa-envelope mr-3"></i> rockinrollinfo@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> 028 7012 3456 </p>
+          </div>
+        </div>
+      </section>
+      <hr class="my-3">
+
+      <!-- Section: Copyright -->
+      <section class="p-3 pt-0">
+        <div class="row d-flex align-items-center">
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-8 text-center text-md-start">
+            <!-- Copyright -->
+            <div class="p-3">
+              © 2023 Copyright:
+              <a class="text-white" href="home.html"
+                 >Rockin'Roll.com</a
+                >
+            </div>
+          </div>
+          <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+            <!-- Facebook -->
+            <a
+               class="btn btn-outline-light btn-floating m-1"
+			   href="https://www.facebook.com/viola.davis/"
+               class="text-white"
+               role="button"
+               ><i class="fab fa-facebook-f"></i
+              ></a>
+
+            <!-- Twitter -->
+            <a
+               class="btn btn-outline-light btn-floating m-1"
+			   href = "https://twitter.com/violadavis"
+               class="text-white"
+               role="button"
+               ><i class="fab fa-twitter"></i
+              ></a>
+
+            <!-- Google -->
+            <a
+               class="btn btn-outline-light btn-floating m-1"
+               class="text-white"
+			   href = "https://en.wikipedia.org/wiki/Viola_Davis"
+               role="button"
+               ><i class="fab fa-google"></i
+              ></a>
+
+            <!-- Instagram -->
+            <a
+               class="btn btn-outline-light btn-floating m-1"
+               class="text-white"
+			   href = "https://www.instagram.com/violadavis/"
+               role="button"
+               ><i class="fab fa-wikipedia-w"></i>
+              </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </footer>
+	
+	<!-- Bootstrap core JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+</body>
+</html>
